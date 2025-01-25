@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+
+    <ul class="navbar__navigation">
+        {%if user%}
+            <li class="navbar__navigation-item">
+                <a href="logout" class="navbar__link">Log Out</a>
+            </li>
+        {%else%}    
+            <li class="navbar__navigation-item">
+                <a href="login" class="navbar__link">Log In</a>
+            </li>
+        {%endif%}
+    </ul>
+</header>
+<main class="main">
+    <section>
+        <h1>Blog Highlights</h1>
+        {%for entry in entries%}
+        <article class="entry">
+            <div>
+                <h2 class="entry__title">{{entry[0]}}</h2>
+                <time class="entry__date">{{entry[2]}}</time>
+            </div>
+            <p class="entry__content">
+                {{entry[1] | truncate(100, true)}}
+            </p>
+            <div>
+                {%if user%}
+                <a href="view/{{entry[-1]}}" class="entry__author">View</a>
+                {%else%}
+                <a href="/login" class="entry__author">Login to see complete...</a>
+                {%endif%}
+            </div>
+        </article>
+        {%endfor%}
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        {%if user%}
+            <section class="left">
+                <div class="footer__coloumn">
+                    <a class="footer__item" href="/user_page">{{user}}</a>
+                    <a class="footer__item" href="/newblog">Post a new blog</a>
+                </div>
+            </section>
+            <section class="right">
+                <div class="footer__coloumn">
+                    <a class="footer__item" href="/">Home</a>
+                    <a class="footer__item" href="/about">About Microblog</a>
+                </div>
+            </section>
+        {%else%}
+            <section class="left">
+                <div class="footer__coloumn">
+                    <a class="footer__item" href="/">Home</a>
+                </div>
+            </section>
+            <section class="right">
+                <div class="footer__coloumn">
+                    <a class="footer__item" href="/about">About Microblog</a>
+                </div>
+            </section>
+        {%endif%}
+        
+    </div>
+</footer>
+</body>
+</html>

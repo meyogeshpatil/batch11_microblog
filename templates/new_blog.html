@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>Create a new blog</h1>
+        <form class="form" method="POST">
+            <p class="form__input">
+                <label for="entry" class="form__label">Blog Title:</label>
+                <textarea name="title" id="entry" class="form_textarea"></textarea>
+                <label for="entry" class="form__label">Blog Content:</label>
+                <textarea name="content" id="entry" class="form_textarea"></textarea>
+            </p>
+            <button type="submit" class="form__submit">Post a Blog</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div class="footer__coloumn">
+                <a class="footer__item" href="/user_page">{{user}}</a>
+            </div>
+        </section>
+        <section class="right">
+            <div class="footer__coloumn">
+                <a class="footer__item" href="/">Home</a>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>{{user}}'s Profile</h1>
+        <div>
+            <h3>User Information</h3>
+            <p><strong>Username: </strong>{{username}}</p>
+            <p><strong>Email: </strong>{{email}}</p>
+            <p><strong>Followers: </strong>{{follower_count}}</p>
+            {%if not is_own_profile%}
+                {%if is_following%}
+                <form action="{{url_for('unfollow', username=username)}}" method="POST">
+                    <button type="submit" class="following">Following</button>
+                    <button type="submit" class="form__submit">Unfollow</button>
+
+                </form>
+                {%else%}
+                    <form action="{{url_for('follow', username=username)}}", method="POST">
+                        <button type="submit" class="form__submit">Follow</button>
+                    </form>
+                {%endif%}
+            {%endif%}
+        </div>
+        <div>
+            <h2>Contrubutions</h2>
+
+            
+            {%if contribution%}
+                {%for entry in contribution%}
+                <article class="entry">
+                    <div>
+                        <h2 class="entry__title">{{entry[1]}}</h2>
+                        <time class="entry__date">{{entry[-2]}}</time>
+                    </div>
+                    <p class="entry__content">
+                        {{entry[2] | truncate(100, true)}}
+                    </p>
+                    <div>
+                        <a href="{{url_for('view',entry_id=entry[-1])}}" class="entry__author">View</a>
+                    </div>
+                </article>
+                {%endfor%}
+            {%else%}
+                <p>No Contribution yet.</p>
+            {%endif%}
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div>
+                <a class="footer__item" href="/">Home</a>
+            </div>
+        </section>
+        <section class="right">
+            <div>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

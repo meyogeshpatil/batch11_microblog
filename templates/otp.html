@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Validation - Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>Enter OTP</h1>
+        <form class="form" action="/verify_otp", method="POST">
+            <p class="form__input">
+                <label for="otp" class="form__label">Enter OTP sent on {{email}}</label>
+                <input type="otp" name="otp" id="otp" class="form__input" required>
+            </p>
+            <button type="submit" class="form__submit">Send OTP</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div>
+                <a class="footer__item" href="/">Home</a>
+            </div>
+        </section>
+        <section class="right">
+            <div>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

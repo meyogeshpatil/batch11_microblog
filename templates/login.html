@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>Log In</h1>
+        <form class="form" action="/login", method="POST">
+            <p class="form__input"> 
+                <label for="username" class="form__label">Username:</label>
+                <input type="text" name="username" id="username"  required/>
+            </p>
+            <p>
+                <label for="password" class="form__label">Password:</label>
+                <input type="password" name="password" id="password"  required/>
+            </p>
+            <button type="submit" class="form__submit">Log In</button>
+            <p>Don't have an account? <a href="/signup">Signup</a></p>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div>
+                <a class="footer__item" href="/">Home</a>
+            </div>
+        </section>
+        <section class="right">
+            <div>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

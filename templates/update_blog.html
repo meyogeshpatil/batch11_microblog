@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updage Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+    <ul class="navbar__navigation">
+            <li class="navbar__navigation-item">
+                <a href="{{url_for('logout')}}" class="navbar__link">Log Out</a>
+            </li>
+    </ul>
+</header>
+<main class="main">
+    <section>
+        <h1>Updage Blog Entry</h1>
+        <form class="form" method = 'POST' action="/update_blog/{{entry._id}}">
+            <p class="form__input">
+                <label for="entry" class="form__label">Title:</label>
+                <input type="text" id="updated_title" name="updated_title" class="form__textarea" value="{{entry.title}}">
+            </p>
+            <p class="form__input"></p>
+                <label for="entry" class="form__label">Content:</label>
+                <input type="text" id="updated_content" name="updated_content" class="form__textarea" value="{{entry.content}}">
+            </p>
+            <button type="submit" class="form__submit">Update Blog</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div>
+                <a class="footer__item" href="/">Home</a>
+            </div>
+        </section>
+        <section class="right">
+            <div>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

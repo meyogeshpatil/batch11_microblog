@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>My Blogs</h1>
+        {%for entry in entries%}
+        <article class="entry">
+            <div>
+                <h2 class="entry__title">{{entry[0]}}</h2>
+                <time class="entry__date">{{entry[2]}}</time>
+            </div>
+            <p class="entry__content">
+                {{entry[1] | truncate(100, true)}}
+            </p>
+            <div>
+                <a href="view/{{entry[-1]}}" class="entry__author">View</a>
+                <a href="update_blog/{{entry[-1]}}" class="entry__author">Edit Blog</a>
+                <a href="delete_blog/{{entry[-1]}}" class="entry__author">Delete Blog</a>
+            </div>
+
+        </article>
+        {%endfor%}
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div class="footer__coloumn">
+                <a class="footer__item" href="/user_page">{{user}}</a>
+                <a class="footer__item" href="/newblog">Post a new blog</a>    
+                
+            </div>
+        </section>
+        <section class="right">
+            <div class="footer__coloumn"> 
+                <a class="footer__item" href="/">Home</a>
+                <a class="footer__item" href="/profile">Profile</a>
+            </div>
+            <div class="footer__coloumn">
+                <a class="footer__item" href="/about">About Microblog</a>
+                <a class="footer__item" href="/delete_account">Delete Account</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

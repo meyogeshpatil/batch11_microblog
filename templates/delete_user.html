@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account- Microblog</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar__brand">
+        <img  class="navbar__logo" src="/static/blog_01.svg" alt="The Microblog Logo"/> Microblog
+    </div>
+</header>
+<main class="main">
+    <section>
+        <h1>Delete Account</h1>
+        <p>Hello {{user}}! Are you shure you want to delete your account?</p>
+        <form class="form" method="POST" action="delete_account">
+            <label >
+                <input type="radio" name="delete_option" value="account_only" required>
+                Delete my account only
+            </label>
+            <br>
+            <label >
+                <input type="radio" name="delete_option" value="all_data" required>
+                Delete my account and all associated data
+            </label>
+                <br>
+                <button type="submit" class="form__submit">Delete entry</button>
+        </form>
+    </section>
+</main>
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <div>
+                <a class="footer__item" href="/">Home</a>
+            </div>
+        </section>
+        <section class="right">
+            <div>
+                <a class="footer__item" href="/about">About Microblog</a>
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>
